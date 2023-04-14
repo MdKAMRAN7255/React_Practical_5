@@ -9,7 +9,7 @@ I used these following librabry for this Practical
 
 This is my folder structure for this app.
 
-![Screenshot from 2023-04-11 18-09-22](https://user-images.githubusercontent.com/122250114/231164892-755c4e32-e975-47d1-a088-44dfcb5bdb89.png)
+<img src="https://github.com/MdKAMRAN7255/Screenshot/blob/bd487ee665f2915e808169dfc292757c5cc703fb/FolderStr.png" />
 
 And We get this Api Link for fetching data of user List: https://reqres.in/api/users
 
@@ -54,25 +54,32 @@ My UI look like this:
       
  **U can notice that for the active user button and a dot over the name is green and for the inactive user button bg-color will be orange and a dot over the name is red in color.**
  
-I store all the data which is showing in table in actionReducer.js. And even after hover over the table row, modal is getting data from there only.
+We are getting name, Email, image data from api and other data like progressbar are given by ourself. 
+
+<img src="https://github.com/MdKAMRAN7255/Screenshot/blob/d187f66b2c6519742a5f39e3a9b0e651d960a6e5/dataobject.png"
 
 Inside TableData.js 
 
+I merged both the array (1. API And 2. Data given by myself).
+     
+     <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/d187f66b2c6519742a5f39e3a9b0e651d960a6e5/mergedArray.png" />
+
+     
+     
 I add mouseEvent on row(<tr>) so that whenever we take their mouse over the row and remove our mouse it call that mouse event.
 
-On mouse hover, I add onMouseEnter Event which dispatch ShowModaled action with that particular index of the row.
+On mouse hover, I add onMouseEnter Event which dispatch ShowModaled action with that list of mergedArray so that progressbar look responsive.
+
+<img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/action%20creator.png" />
+  
 
 And if we remove our mouse from that row OnMouseLeave Event will be called and it dispatch the same which help in change the toggle data to false so that modal will disappear.
 
-  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/dispatch.png" />
-  
- And Inside indexAction.js I pass the index of that row to reducer so that he can filter out that row for modal
- 
-  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/action%20creator.png" />
-  
-And Inside reducer fucntion I filter the index value and store it inside a separate variable and get that variable with the help of useSelector in modal.js
-  
-  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/reducer.png" />
+  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/d187f66b2c6519742a5f39e3a9b0e651d960a6e5/PassingDataToModal.png" />
   
   
-***Please wait for few second for loading the page first because of high quality of image. And just because of this hover is not working properly for the first few second.***
+  
+  ***I made Page dynamic if the data page increases it will automatically increase in the UI.***
+
+
+  
