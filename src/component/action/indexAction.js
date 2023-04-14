@@ -1,6 +1,8 @@
-export const showData = () =>{
+export const showData = (id) =>{
+    console.log(id, "showData")
     return {
-        type: "showdata"
+        type: "showdata",
+        payload:id
     }
 } 
 
@@ -10,4 +12,3 @@ export const showModaled = (index) =>{
         payload: index
     }
 }
-

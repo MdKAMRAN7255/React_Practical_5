@@ -3,6 +3,7 @@ body{
 }
 .main{
     width: 100% !important;
+    background-color: white;
 }
 .img{
     border-radius: 50%;
@@ -62,4 +63,7 @@ span{
 {
 	border-radius: 10px;
 	background-color: rgb(186, 186, 186);
+}
+.image-div{
+    height: 500px;
 }

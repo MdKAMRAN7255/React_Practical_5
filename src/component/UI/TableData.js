@@ -5,9 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { showModaled } from "../action/indexAction";
 
 function TableData() {
-  const data = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const  list  = useSelector((state) => state.list);
+  const  list1 = useSelector((state) => state.list1);
 
+  const dispatch = useDispatch();
+  const mergedArray = list.map((obj, index) => ({ ...obj, ...list1[index] }))
   return (
     <>
       <table className="table">
@@ -20,32 +22,32 @@ function TableData() {
           </tr>
         </thead>
         <tbody>
-          {data.list &&
-            data.list.map((list, index) => (
+          { !(!list1 || list1.length === 0) &&
+            mergedArray.map((list, index) => (
               <tr
                 key={index}
-                onMouseEnter={() => dispatch(showModaled(index))}
-                onMouseLeave={() => dispatch(showModaled(index))}
+                onMouseEnter={() => dispatch(showModaled([list]))}
+                onMouseLeave={() => dispatch(showModaled([list]))}
               >
                 <td>
                   <div className="d-flex flex-row">
                     <div>
                       <img
                         className="img"
-                        src={list.src}
+                        src={list.avatar}
                         width="40px"
                         height="40px"
                       />
                     </div>
                     <div className="ps-2">
-                      <span className="m-0 d-block">{list.name}</span>
+                      <span className="m-0 d-block">{list.first_name} {list.last_name}</span>
                       <span className="text-secondary">{list.email}</span>
                     </div>
                   </div>
                 </td>
                 <td className="px-0">
-                  {list.status === "Active" ? (
-                    <span className="text-success fw-normal ps-1">Active</span>
+                  {(list.first_name === "George" && list.last_name === "Bluth" ) ? (
+                    <span className="text-success fw-bold ps-1">Active</span>
                   ) : (
                     <select
                       className="form-select border border-0 select"
@@ -60,7 +62,23 @@ function TableData() {
                     </select>
                   )}
                 </td>
-                <td>{list.access}</td>
+                <td>
+                  {(list.first_name === "George" && list.last_name === "Bluth" )? (
+                    <span className="fw-bold ps-1">Owner</span>
+                  ) : (
+                    <select
+                      className="form-select border border-0 select"
+                      aria-label="Default select example"
+                    >
+                      <option value="1" className="bg-light">
+                        {list.access}
+                      </option>
+                      <option value="2" className="bg-light">
+                        Read
+                      </option>
+                    </select>
+                  )}
+                </td>
                 <td>
                   <img src={list.icon} width="25px" height="25px" />
                 </td>
