@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# React Practical 5 (User_List_App Fetching Data from an API using AXIOS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I have Created a react app using CRA.
 
-## Available Scripts
+I used these following librabry for this Practical
+  1. Bootstrap
+  2. React-redux
+  3. Paginate
 
-In the project directory, you can run:
+This is my folder structure for this app.
 
-### `npm start`
+![Screenshot from 2023-04-11 18-09-22](https://user-images.githubusercontent.com/122250114/231164892-755c4e32-e975-47d1-a088-44dfcb5bdb89.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+And We get this Api Link for fetching data of user List: https://reqres.in/api/users
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/Api.png" />
 
-### `npm test`
+Inside src folder I created a component directory inside which I created a different folder with folder name according to their purpose.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used Redux concept in this pratical and made the data flow unidirectional.
 
-### `npm run build`
+I do not use combinator in this practical because their is only one reducer for this practical. But I knew the concept of combinator & I also practise this. In feature there are multiple reducer then definitely I will use this.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+My UI look like this:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. For Laptop Screen 
+    1. If row of table is not hover
+     <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/fullscreen.png" />
+     
+    2. If row of table is hover and user is active
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/fullScreenActiveUser.png" />
+      
+    3. If row of table is hover and user is Inactive
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/fullScreenInactive.png" />
+    
+    4.If user is on 2nd page:
+          <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/fullScreenPage2.png" />
+      
+    5.If user is on lasr page:
+          <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/fullScreenPage3.png" />
+          
+          
+2. For Tab Screen: 
+   1. If row of table is not hover
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/Tab.png" />
+    2. If row of table is hover
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/5195a412e4138f97758630ef5459647dace7e758/Pracatical4S/tabletWithHover.png" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. For Mobile Screen: 
+   1. If row of table is not hover
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/Phone.png" />
+    2. If row of table is hover
+      <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/a870b83fc62a8186aca3f383af2bb764ea29ab07/Pracatical5S/PhoneHover.png" />
+      
+ **U can notice that for the active user button and a dot over the name is green and for the inactive user button bg-color will be orange and a dot over the name is red in color.**
+ 
+I store all the data which is showing in table in actionReducer.js. And even after hover over the table row, modal is getting data from there only.
 
-### `npm run eject`
+Inside TableData.js 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I add mouseEvent on row(<tr>) so that whenever we take their mouse over the row and remove our mouse it call that mouse event.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+On mouse hover, I add onMouseEnter Event which dispatch ShowModaled action with that particular index of the row.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+And if we remove our mouse from that row OnMouseLeave Event will be called and it dispatch the same which help in change the toggle data to false so that modal will disappear.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/dispatch.png" />
+  
+ And Inside indexAction.js I pass the index of that row to reducer so that he can filter out that row for modal
+ 
+  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/action%20creator.png" />
+  
+And Inside reducer fucntion I filter the index value and store it inside a separate variable and get that variable with the help of useSelector in modal.js
+  
+  <img src="https://github.com/MdKAMRAN7255/Screenshot/blob/90eb02d46f99ecb147d1724832866cf2a3d35a7a/Pracatical4S/reducer.png" />
+  
+  
+***Please wait for few second for loading the page first because of high quality of image. And just because of this hover is not working properly for the first few second.***
