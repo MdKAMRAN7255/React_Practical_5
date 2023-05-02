@@ -1,5 +1,5 @@
 import React from "react";
-import "../index/index.css";
+import "../wrapper/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { showModaled } from "../../action/indexAction";

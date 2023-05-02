@@ -1,40 +1,48 @@
-import React from "react";
+import React, { useMemo, useCallback, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import { showData } from "../../action/indexAction";
 import { useDispatch } from "react-redux";
+import { showData } from "../../action/indexAction";
 
-const Pagignation = () => {
+function Pagignation() {
   const dispatch = useDispatch();
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPagesData, setTotalPagesData] = useState({ totalPages: 0 });
 
-  //Fetching data only when page is render(loading)/refresh for the first time.
+  // Fetching data only when page is render(loading)/refresh for the first time.
   useEffect(() => {
     const getUserData = async () => {
       const { data } = await axios.get("https://reqres.in/api/users?page=1");
 
       //getting total no. of available page from api from dynamic page no.
       //Adding one page extra than available page at end to show no more data message to user for better experience
-      setTotalPages(data.total_pages + 1);
+      setTotalPagesData({ totalPages: data.total_pages + 1 });
 
       dispatch(showData(data.data));
     };
     getUserData();
-  }, []);
+  }, [dispatch]);
 
-  //fetching data from api whenever page is switching from Page 1-2.
-  const getUserData = async (id) => {
+
+  const getUserData = useCallback(async (id) => {
     const { data } = await axios.get(`https://reqres.in/api/users?page=${id}`);
     dispatch(showData(data.data));
-  };
+  }, [dispatch]);
 
-  const handlePageClick = (data) => {
-    //fetching current page data
-    const currently = data.selected + 1;
-    getUserData(currently);
-  };
+  // Memoizing the `totalPages` value
+  const totalPages = useMemo(() => totalPagesData.totalPages, [
+    totalPagesData.totalPages,
+  ]);
+
+  const handlePageClick = useCallback(
+    (data) => {
+      //fetching current page data
+      const currently = data.selected + 1;
+      getUserData(currently);
+    },
+    [getUserData]
+  );
+
   return (
     <>
       <ReactPaginate
