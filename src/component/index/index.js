@@ -6,7 +6,7 @@ import nothingImage from '../../Img/Nothing.png'
 import Modal from '../modal/Modal';
 import { useSelector } from 'react-redux';
 import Pagignation from '../pagignation/pagination';
-function Index() {
+const Index = () => {
     const data = useSelector((state) => state)
     return (
         <>

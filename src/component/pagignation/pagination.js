@@ -6,7 +6,7 @@ import axios from "axios";
 import { showData } from "../../action/indexAction";
 import { useDispatch } from "react-redux";
 
-function Pagignation() {
+const Pagignation = () => {
   const dispatch = useDispatch();
   const [totalPages, setTotalPages] = useState(0);
 

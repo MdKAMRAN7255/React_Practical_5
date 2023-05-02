@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { showModaled } from "../../action/indexAction";
 
-function TableData() {
+const TableData = () => {
   const profileList = useSelector((state) => state.list);
   const staticList = useSelector((state) => state.list1);
 

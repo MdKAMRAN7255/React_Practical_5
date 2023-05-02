@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../index.css";
 import { useSelector } from "react-redux";
-function Modal() {
+const Modal = () => {
   const modalshow = useSelector((state) => state);
   return (
     <>
