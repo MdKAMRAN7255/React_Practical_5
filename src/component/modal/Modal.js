@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
+import "../../index.css";
 import { useSelector } from "react-redux";
 function Modal() {
   const modalshow = useSelector((state) => state);
@@ -27,7 +27,14 @@ function Modal() {
                 <div className="col-12 d-flex justify-content-center flex-column text-center">
                   <p className="display-5 p-0 m-0 font-weight-bold">
                     {data.first_name} {data.last_name}
-                    <sup className={` ${(data.first_name === "George" && data.last_name === "Bluth") ? "text-success " : "text-danger"} active font-weight-bold`} >
+                    <sup
+                      className={` ${
+                        data.first_name === "George" &&
+                        data.last_name === "Bluth"
+                          ? "text-success "
+                          : "text-danger"
+                      } active font-weight-bold`}
+                    >
                       .
                     </sup>
                   </p>
@@ -39,7 +46,13 @@ function Modal() {
                   </p>
                 </div>
                 <div className="col">
-                  <button className={` btn btn-primary ${(data.first_name === "George" && data.last_name === "Bluth") ? "btn-success" : "btn-warning"} font-weight-bold px-2 py-sm-2 px-sm-5 `} >
+                  <button
+                    className={` btn btn-primary ${
+                      data.first_name === "George" && data.last_name === "Bluth"
+                        ? "btn-success"
+                        : "btn-warning"
+                    } font-weight-bold px-2 py-sm-2 px-sm-5 `}
+                  >
                     {data.status} User
                   </button>
                 </div>
@@ -51,7 +64,12 @@ function Modal() {
                 <div className="col-12 d-flex justify-content-center">
                   <div className="progress">
                     <div
-                      className={`progress-bar ${(data.first_name === "George" && data.last_name === "Bluth") ? "bg-success" : "bg-warning"}`}
+                      className={`progress-bar ${
+                        data.first_name === "George" &&
+                        data.last_name === "Bluth"
+                          ? "bg-success"
+                          : "bg-warning"
+                      }`}
                       role="progressbar"
                       aria-valuenow="50"
                       aria-valuemin="0"
@@ -82,4 +100,3 @@ function Modal() {
 }
 
 export default Modal;
-

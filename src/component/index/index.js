@@ -1,11 +1,11 @@
 import React from 'react';
 import "./index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TableData from './TableData';
-import nothingImage from '../Img/Nothing.png'
-import Modal from './Modal';
+import TableData from '../table/TableData';
+import nothingImage from '../../Img/Nothing.png'
+import Modal from '../modal/Modal';
 import { useSelector } from 'react-redux';
-import Pagignation from './pagination';
+import Pagignation from '../pagignation/pagination';
 function Index() {
     const data = useSelector((state) => state)
     return (

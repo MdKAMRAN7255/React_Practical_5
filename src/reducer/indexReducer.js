@@ -52,7 +52,7 @@ const data = {
       monthly_reviewd: 6800
     },
   ],
-  list1:[],
+  list1:[], //getting API data in this array
   hoverData : [],
   modalToggle: false,
 };

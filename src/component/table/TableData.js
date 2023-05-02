@@ -1,15 +1,15 @@
 import React from "react";
-import "./index.css";
+import "../index/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
-import { showModaled } from "../action/indexAction";
+import { showModaled } from "../../action/indexAction";
 
 function TableData() {
-  const  list  = useSelector((state) => state.list);
-  const  list1 = useSelector((state) => state.list1);
+  const list = useSelector((state) => state.list);
+  const list1 = useSelector((state) => state.list1);
 
   const dispatch = useDispatch();
-  const mergedArray = list.map((obj, index) => ({ ...obj, ...list1[index] }))
+  const mergedArray = list.map((obj, index) => ({ ...obj, ...list1[index] }));
   return (
     <>
       <table className="table">
@@ -22,7 +22,7 @@ function TableData() {
           </tr>
         </thead>
         <tbody>
-          { !(!list1 || list1.length === 0) &&
+          {!(!list1 || list1.length === 0) &&
             mergedArray.map((list, index) => (
               <tr
                 key={index}
@@ -40,13 +40,16 @@ function TableData() {
                       />
                     </div>
                     <div className="ps-2">
-                      <span className="m-0 d-block">{list.first_name} {list.last_name}</span>
+                      <span className="m-0 d-block">
+                        {list.first_name} {list.last_name}
+                      </span>
                       <span className="text-secondary">{list.email}</span>
                     </div>
                   </div>
                 </td>
                 <td className="px-0">
-                  {(list.first_name === "George" && list.last_name === "Bluth" ) ? (
+                  {list.first_name === "George" &&
+                  list.last_name === "Bluth" ? (
                     <span className="text-success fw-bold ps-1">Active</span>
                   ) : (
                     <select
@@ -63,7 +66,8 @@ function TableData() {
                   )}
                 </td>
                 <td>
-                  {(list.first_name === "George" && list.last_name === "Bluth" )? (
+                  {list.first_name === "George" &&
+                  list.last_name === "Bluth" ? (
                     <span className="fw-bold ps-1">Owner</span>
                   ) : (
                     <select

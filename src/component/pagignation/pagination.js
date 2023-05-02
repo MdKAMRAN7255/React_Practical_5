@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { showData } from "../action/indexAction";
+import { showData } from "../../action/indexAction";
 import { useDispatch } from "react-redux";
 
 function Pagignation() {
@@ -29,7 +29,6 @@ function Pagignation() {
     const { data } = await axios.get(`https://reqres.in/api/users?page=${id}`);
     dispatch(showData(data.data));
   };
-
 
   const handlePageClick = (data) => {
     //fetching current page data
