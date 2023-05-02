@@ -12,7 +12,7 @@ function Pagignation() {
 
   //Fetching data only when page is render(loading)/refresh for the first time.
   useEffect(() => {
-    const getUser = async () => {
+    const getUserData = async () => {
       const { data } = await axios.get("https://reqres.in/api/users?page=1");
 
       //getting total no. of available page from api from dynamic page no.
@@ -21,11 +21,11 @@ function Pagignation() {
 
       dispatch(showData(data.data));
     };
-    getUser();
+    getUserData();
   }, []);
 
   //fetching data from api whenever page is switching from Page 1-2.
-  const getUser = async (id) => {
+  const getUserData = async (id) => {
     const { data } = await axios.get(`https://reqres.in/api/users?page=${id}`);
     dispatch(showData(data.data));
   };
@@ -33,7 +33,7 @@ function Pagignation() {
   const handlePageClick = (data) => {
     //fetching current page data
     const currently = data.selected + 1;
-    getUser(currently);
+    getUserData(currently);
   };
   return (
     <>

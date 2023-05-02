@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { showModaled } from "../../action/indexAction";
 
 function TableData() {
-  const list = useSelector((state) => state.list);
-  const list1 = useSelector((state) => state.list1);
+  const profileList = useSelector((state) => state.list);
+  const staticList = useSelector((state) => state.list1);
 
   const dispatch = useDispatch();
-  const mergedArray = list.map((obj, index) => ({ ...obj, ...list1[index] }));
+  const mergedArray = profileList.map((obj, index) => ({ ...obj, ...staticList[index] }));
   return (
     <>
       <table className="table">
@@ -22,7 +22,7 @@ function TableData() {
           </tr>
         </thead>
         <tbody>
-          {!(!list1 || list1.length === 0) &&
+          {!(!staticList || staticList.length === 0) &&
             mergedArray.map((list, index) => (
               <tr
                 key={index}
