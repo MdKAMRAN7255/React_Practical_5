@@ -4,12 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { showModaled } from "../../action/indexAction";
 
-const TableData = () => {
+const ProfileList = () => {
   const profileList = useSelector((state) => state.list);
   const staticList = useSelector((state) => state.list1);
 
   const dispatch = useDispatch();
-  const mergedArray = profileList.map((obj, index) => ({ ...obj, ...staticList[index] }));
+  const mergedArray = profileList.map((obj, index) => ({
+    ...obj,
+    ...staticList[index],
+  }));
   return (
     <>
       <table className="table">
@@ -92,6 +95,6 @@ const TableData = () => {
       </table>
     </>
   );
-}
+};
 
-export default TableData;
+export default ProfileList;

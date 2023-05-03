@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../index.css";
 import { useSelector } from "react-redux";
-const Modal = () => {
+const Profile = () => {
   const modalshow = useSelector((state) => state);
   return (
     <>
@@ -99,4 +99,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default Profile;

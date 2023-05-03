@@ -23,16 +23,21 @@ function Pagignation() {
     getUserData();
   }, [dispatch]);
 
-
-  const getUserData = useCallback(async (id) => {
-    const { data } = await axios.get(`https://reqres.in/api/users?page=${id}`);
-    dispatch(showData(data.data));
-  }, [dispatch]);
+  const getUserData = useCallback(
+    async (id) => {
+      const { data } = await axios.get(
+        `https://reqres.in/api/users?page=${id}`
+      );
+      dispatch(showData(data.data));
+    },
+    [dispatch]
+  );
 
   // Memoizing the `totalPages` value
-  const totalPages = useMemo(() => totalPagesData.totalPages, [
-    totalPagesData.totalPages,
-  ]);
+  const totalPages = useMemo(
+    () => totalPagesData.totalPages,
+    [totalPagesData.totalPages]
+  );
 
   const handlePageClick = useCallback(
     (data) => {

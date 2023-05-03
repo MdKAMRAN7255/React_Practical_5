@@ -1,11 +1,12 @@
 import React from "react";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import TableData from "../table/TableData";
 import nothingImage from "../../Img/Nothing.png";
-import Modal from "../modal/Modal";
+import Profile from "../profile/profile";
 import { useSelector } from "react-redux";
 import Pagignation from "../pagignation/pagination";
+import ProfileList from "../profileList/profileList";
+
 const Index = () => {
   const data = useSelector((state) => state);
   return (
@@ -20,14 +21,14 @@ const Index = () => {
                 } col-md-6 pt-4 pb-3
                               col-lg-8 overflow mb-2`}
               >
-                <TableData />
+                <ProfileList />
               </div>
               <div
                 className={` ${
                   data.modalToggle ? "col-7" : "col-0"
                 } col-md-6 col-lg-4 d-flex justify-content-center align-items-center`}
               >
-                <Modal />
+                <Profile />
               </div>
             </>
           ) : (

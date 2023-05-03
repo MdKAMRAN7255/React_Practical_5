@@ -1,69 +1,67 @@
-body{
-   background: #000; 
+body {
+  background: #000;
 }
-.main{
-    width: 100% !important;
-    background-color: white;
+.main {
+  width: 100% !important;
+  background-color: white;
 }
-.img{
-    border-radius: 50%;
+.img {
+  border-radius: 50%;
 }
-.email{
-    padding-left: 40px !important;
+.email {
+  padding-left: 40px !important;
 }
-.active{
-    font-size: 65px;
+.active {
+  font-size: 65px;
 }
-sup{
-    top: -0.2em !important;
+sup {
+  top: -0.2em !important;
 }
-.progress, .progress-bar{
-    height: 7px !important;
-    width: 90%;
+.progress,
+.progress-bar {
+  height: 7px !important;
+  width: 90%;
 }
 .vertical {
-    border-left: 3px solid black;
-    height: 50px;
-    position:absolute;
-    left: 50%;
+  border-left: 3px solid black;
+  height: 50px;
+  position: absolute;
+  left: 50%;
 }
-p{
-    font-size: 20px !important;
+p {
+  font-size: 20px !important;
 }
-.modal-border{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 5%;
+.modal-border {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5%;
 }
-.plan-user{
-    font-weight: 500;
+.plan-user {
+  font-weight: 500;
 }
-span{
-    overflow: wrap;
-    word-wrap: break-word;
+span {
+  overflow: wrap;
+  word-wrap: break-word;
 }
-.select{
-    background-color: rgb(206, 206, 206) !important;
-    width: 70% !important;
+.select {
+  background-color: rgb(206, 206, 206) !important;
+  width: 70% !important;
 }
-.overflow{
-    overflow: scroll;
-    overflow-y: hidden !important;
+.overflow {
+  overflow: scroll;
+  overflow-y: hidden !important;
 }
-.overflow::-webkit-scrollbar-track
-{
-	border-radius: 10px;
-}
-
-.overflow::-webkit-scrollbar
-{
-    height: 7px !important;
+.overflow::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
-.overflow::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-color: rgb(186, 186, 186);
+.overflow::-webkit-scrollbar {
+  height: 7px !important;
 }
-.image-div{
-    height: 500px;
+
+.overflow::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(186, 186, 186);
+}
+.image-div {
+  height: 500px;
 }
